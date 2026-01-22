@@ -1,7 +1,7 @@
 <?php
 require_once 'Database.php';
 
-// --- Mission Functions ---
+
 
 function getAllMissions($conn) {
     $sql = "SELECT * FROM missions ORDER BY launch_date DESC";
@@ -39,7 +39,7 @@ function deleteMission($conn, $id) {
     return mysqli_stmt_execute($stmt);
 }
 
-// --- Assignment Functions ---
+
 
 function assignAstronautToMission($conn, $missionId, $astronautId) {
     $sql = "INSERT INTO assignments (mission_id, astronaut_id) VALUES (?, ?)";
@@ -60,23 +60,22 @@ function getAssignmentsByMission($conn, $missionId) {
     return mysqli_fetch_all($result, MYSQLI_ASSOC);
 }
 
-// Helper to get overall system stats for Dashboard
+
 function getSystemStats($conn) {
     $stats = [];
     
-    // Total Missions (Active: planned + in-progress)
     $res = mysqli_query($conn, "SELECT COUNT(*) as count FROM missions WHERE status IN ('planned', 'in-progress')");
     $stats['total_missions'] = mysqli_fetch_assoc($res)['count'];
 
-    // Active Missions (in-progress)
+   
     $res = mysqli_query($conn, "SELECT COUNT(*) as count FROM missions WHERE status = 'in-progress'");
     $stats['active_missions'] = mysqli_fetch_assoc($res)['count'];
 
-    // Total Astronauts
+   
     $res = mysqli_query($conn, "SELECT COUNT(*) as count FROM users WHERE role = 'astronaut'");
     $stats['total_astronauts'] = mysqli_fetch_assoc($res)['count'];
 
-    // Pending Supply Requests
+    
     $res = mysqli_query($conn, "SELECT COUNT(*) as count FROM supply_requests WHERE status = 'pending'");
     $stats['pending_requests'] = mysqli_fetch_assoc($res)['count'];
 
