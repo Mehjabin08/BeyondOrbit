@@ -1,7 +1,7 @@
 <?php
 require_once 'Database.php';
 
-// --- Mission Logs ---
+
 
 function createMissionLog($conn, $missionId, $astronautId, $content) {
     $sql = "INSERT INTO mission_logs (mission_id, astronaut_id, log_content) VALUES (?, ?, ?)";
@@ -23,7 +23,7 @@ function getLogsByAstronaut($conn, $astronautId) {
     return mysqli_fetch_all($result, MYSQLI_ASSOC);
 }
 
-// --- Supply Requests ---
+
 
 function createSupplyRequest($conn, $missionId, $astronautId, $itemName, $quantity) {
     $sql = "INSERT INTO supply_requests (mission_id, astronaut_id, item_name, quantity) VALUES (?, ?, ?, ?)";
@@ -62,7 +62,7 @@ function updateSupplyRequestStatus($conn, $requestId, $status) {
     return mysqli_stmt_execute($stmt);
 }
 
-// --- Assigned Missions ---
+
 
 function getAssignedMissionsForAstronaut($conn, $astronautId) {
     $sql = "SELECT m.*, a.assigned_at 
