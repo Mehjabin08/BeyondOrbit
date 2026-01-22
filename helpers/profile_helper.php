@@ -2,8 +2,7 @@
 
 function getProfileImage($userId) {
     $jsonFile = __DIR__ . '/../data/user_images.json';
-    $defaultImage = 'https://ui-avatars.com/api/?name=User&background=random'; // Use a default avatar service or local asset
-
+    $defaultImage = 'https://ui-avatars.com/api/?name=User&background=random'; 
     if (!file_exists($jsonFile)) {
         return $defaultImage;
     }
@@ -19,9 +18,6 @@ function getProfileImage($userId) {
         }
     }
 
-    // Attempt to get user initials for dynamic default
-    // This would require fetching user data, but for simplicity here we default
-    // ideally we pass the user name too, but let's stick to a generic one or simple logic
     return $defaultImage; 
 }
 ?>
