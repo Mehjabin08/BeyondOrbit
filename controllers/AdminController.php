@@ -62,7 +62,6 @@ function getAllAstronauts($conn) {
 
 if ($action === 'admin_dashboard') {
     $stats = getSystemStats($conn);
-    $stats = getSystemStats($conn);
     $logsRes = mysqli_query($conn, "SELECT ml.*, m.title as mission_title, u.full_name as astronaut_name 
                                     FROM mission_logs ml 
                                     JOIN missions m ON ml.mission_id = m.id 
