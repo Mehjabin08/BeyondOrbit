@@ -1,6 +1,5 @@
 <?php
-// debug_check.php
-// Access this via http://localhost/BeyondOrbit/debug_check.php
+
 
 require_once 'models/Database.php';
 
@@ -16,7 +15,6 @@ try {
     die();
 }
 
-// 2. Check User Table
 echo "<h2>2. User Table Check</h2>";
 $email = 'director@beyondorbit.com';
 $sql = "SELECT * FROM users WHERE email = '$email'";
@@ -28,7 +26,7 @@ if ($row = mysqli_fetch_assoc($result)) {
     print_r($row);
     echo "</pre>";
 
-    // 3. Verify Password
+   
     echo "<h2>3. Password Verification</h2>";
     $inputPassword = 'password123';
     if (password_verify($inputPassword, $row['password_hash'])) {
