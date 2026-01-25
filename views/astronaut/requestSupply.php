@@ -29,8 +29,8 @@
         </form>
     </div>
  
-    <!-- Request History -->
-    <div style="grid-column: span 2;">
+    
+    <div style="grid-column: span 4;">
         <h3>Requisition Status</h3>
         <div class="table-container">
             <table>
