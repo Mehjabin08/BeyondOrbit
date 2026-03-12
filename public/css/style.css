@@ -11,13 +11,12 @@
 }
 
 body {
-    background-color: var(--bg-color);
+    background: radial-gradient(ellipse at bottom, #1b2735 0%, #090a0f 100%);
     color: var(--text-color);
     font-family: var(--font-main);
     margin: 0;
     padding: 0;
     line-height: 1.6;
-    background-color: #000000;
     min-height: 100vh;
 }
 
@@ -94,11 +93,13 @@ nav a.active {
 }
 
 .auth-card {
-    background: var(--card-bg);
+    background: rgba(21, 25, 43, 0.4);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
     padding: 2.5rem;
     border-radius: 16px;
-    border: 1px solid var(--glass-border);
-    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.5);
     width: 100%;
     max-width: 400px;
     text-align: center;
@@ -144,11 +145,12 @@ nav a.active {
     padding: 12px 24px;
     border-radius: 8px;
     border: none;
-    background: var(--primary-color);
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
     color: #fff;
     font-weight: bold;
     cursor: pointer;
-    transition: opacity 0.3s, transform 0.2s;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 150, 136, 0.3);
     text-decoration: none;
     text-align: center;
     font-size: 1rem;
@@ -156,8 +158,9 @@ nav a.active {
 }
 
 .btn:hover {
-    opacity: 0.9;
-    transform: translateY(-2px);
+    transform: translateY(-3px) scale(1.02);
+    box-shadow: 0 8px 25px rgba(112, 0, 255, 0.5);
+    opacity: 1;
 }
 
 .btn-secondary {
