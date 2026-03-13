@@ -30,6 +30,18 @@ $profileImg = getProfileImage($_SESSION['user_id']);
                 <?php echo $stats['pending_requests']; ?>
             </div>
         </div>
+        <div class="stat-card">
+            <h3>Accepted Requests</h3>
+            <div class="value" style="color: #10b981;">
+                <?php echo $stats['accepted_requests']; ?>
+            </div>
+        </div>
+        <div class="stat-card">
+            <h3>Denied Requests</h3>
+            <div class="value" style="color: #ef4444;">
+                <?php echo $stats['denied_requests']; ?>
+            </div>
+        </div>
     </div>
 
     <h3 style="margin-top: 3rem;">Incoming Transmissions (Recent Logs)</h3>
