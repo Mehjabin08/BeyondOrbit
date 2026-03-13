@@ -19,6 +19,7 @@
                     <th>Mission</th>
                     <th>Item Requested</th>
                     <th>Quantity</th>
+                    <th>Actions</th>
                 </tr>
             </thead>
             <tbody>
@@ -29,10 +30,30 @@
                         <td><?php echo htmlspecialchars($request['mission_title']); ?></td>
                         <td><?php echo htmlspecialchars($request['item_name']); ?></td>
                         <td><?php echo $request['quantity']; ?></td>
+                        <td>
+                            <?php if ($request['status'] === 'pending'): ?>
+                                <div style="display: flex; gap: 5px;">
+                                    <form action="index.php?action=update_supply_status" method="POST">
+                                        <input type="hidden" name="request_id" value="<?php echo $request['id']; ?>">
+                                        <input type="hidden" name="status" value="approved">
+                                        <button type="submit" class="btn" style="padding: 5px 10px; font-size: 0.8rem; background: var(--primary-color);">ACCEPT</button>
+                                    </form>
+                                    <form action="index.php?action=update_supply_status" method="POST">
+                                        <input type="hidden" name="request_id" value="<?php echo $request['id']; ?>">
+                                        <input type="hidden" name="status" value="rejected">
+                                        <button type="submit" class="btn btn-danger" style="padding: 5px 10px; font-size: 0.8rem;">DENY</button>
+                                    </form>
+                                </div>
+                            <?php else: ?>
+                                <span class="badge status-<?php echo strtolower($request['status']); ?>">
+                                    <?php echo strtoupper($request['status']); ?>
+                                </span>
+                            <?php endif; ?>
+                        </td>
                     </tr>
                 <?php endforeach; ?>
                 <?php if(empty($supplyRequests)): ?>
-                    <tr><td colspan="5">No supply requests found.</td></tr>
+                    <tr><td colspan="6">No supply requests found.</td></tr>
                 <?php endif; ?>
             </tbody>
         </table>
