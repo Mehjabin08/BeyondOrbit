@@ -27,7 +27,7 @@
                 
                 <div class="form-group">
                     <label>Launch Window</label>
-                    <input type="date" name="launch_date" class="form-control" required>
+                    <input type="date" name="launch_date" class="form-control" min="<?php echo date('Y-m-d', strtotime('+1 day')); ?>" required>
                 </div>
 
                 <button type="submit" class="btn">Authorize Launch</button>
@@ -36,7 +36,7 @@
 
         <!-- Mission List -->
         <div class="mission-list-container">
-            <h3>Active Protocols</h3>
+            <h2>Active Protocols</h2>
             <div class="table-container">
                 <table>
                     <thead>
@@ -62,7 +62,7 @@
                                 <td>
                                     <form action="index.php?action=delete_mission" method="POST" onsubmit="return confirm('WARNING: Are you sure you want to abort this mission? This action cannot be undone.');">
                                         <input type="hidden" name="mission_id" value="<?php echo $mission['id']; ?>">
-                                        <button type="submit" class="btn btn-secondary" style="padding: 5px 10px; font-size: 0.8rem; border-color: var(--accent-color); color: var(--accent-color);">ABORT</button>
+                                        <button type="submit" class="btn btn-danger" style="padding: 5px 10px; font-size: 0.8rem;">ABORT</button>
                                     </form>
                                 </td>
                             </tr>
