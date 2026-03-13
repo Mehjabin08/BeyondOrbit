@@ -12,6 +12,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $desc = $_POST['description'];
         $date = $_POST['launch_date'];
         
+        if (strtotime($date) <= strtotime('today')) {
+            header("Location: index.php?action=manage_missions&error=Launch date must be in the future");
+            exit();
+        }
+        
         if (createMission($conn, $title, $desc, $date)) {
             header("Location: index.php?action=manage_missions&success=Mission Launched");
         } else {
