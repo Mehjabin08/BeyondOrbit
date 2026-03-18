@@ -28,7 +28,7 @@ Astronauts are the hands-on explorers executed missions assigned by Command.
 
 ---
 
-## 🛠️ Technical Stack
+##  Technical Stack
 *   **Backend**: PHP (Modular architecture with Controllers and Models)
 *   **Database**: MySQL (Relational schema for Missions, Users, Logs, and Logistics)
 *   **Frontend**: Vanilla HTML5 & CSS3 (Glassmorphism design system)
